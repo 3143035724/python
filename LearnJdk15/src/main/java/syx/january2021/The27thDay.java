@@ -77,4 +77,58 @@ public class The27thDay {
         }
         return index;
     }
+
+
+    @Test
+    public void test3() {
+        int len = strStr("", "");
+        System.out.println(len);
+    }
+
+    /**
+     * 题目：给定一个haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回 -1。
+     */
+//    public int strStr(String haystack, String needle) {
+//        if (needle == null || haystack == null) {
+//            return -1;
+//        }
+//        if (needle.length() == 0 && haystack.length() == 0) {
+//            return 0;
+//        }
+//        int nLen = needle.length();
+//        int hLen = haystack.length();
+//        if (nLen > hLen) {
+//            return -1;
+//        }
+//        // 循环次数为hLen-nLen+1次
+//        for (int i = 0; i < (hLen - nLen + 1); i++) {
+//            if (haystack.substring(i, i + nLen).equals(needle)) {
+//                return i;
+//            }
+//        }
+//        return -1;
+//    }
+
+
+//
+//    public int strStr(String haystack, String needle) {
+//        if (needle == null || haystack == null) {
+//            return -1;
+//        }
+//        if (needle.length() == 0 && haystack.length() == 0) {
+//            return 0;
+//        }
+//
+//        return haystack.indexOf(needle);
+//    }
+    public int strStr(String haystack, String needle) {
+        try {
+            return haystack.indexOf(needle);
+        } catch (Exception e) {
+            return -1;
+        }
+
+    }
+
+
 }
