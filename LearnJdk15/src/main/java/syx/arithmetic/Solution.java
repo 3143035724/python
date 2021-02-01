@@ -1,7 +1,7 @@
 package syx.arithmetic;
 
 /**
- * * syx.arithmetic
+ * * 整数反转
  *
  * @author syx
  * @version 1.0.0
