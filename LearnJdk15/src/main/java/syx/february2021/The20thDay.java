@@ -20,11 +20,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class The20thDay {
 
     /**
-     * 题目：给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序
+     * 题目：移动零 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序
      * 要求：
      * 1、必须在原数组上操作，不能拷贝额外的数组
      * 2、尽量减少操作次数
      * 相关标签：数组、双指针
+     * https://leetcode-cn.com/problems/move-zeroes/
      */
 
     public void moveZeroes(int[] nums) {
@@ -53,10 +54,11 @@ public class The20thDay {
     }
 
     /**
-     * 题目：给定一个非空且只包含非负数的整数数组 nums，数组的度的定义是指数组里任一元素出现频数的最大值
+     * 题目：数组的度 给定一个非空且只包含非负数的整数数组 nums，数组的度的定义是指数组里任一元素出现频数的最大值
      * 在 nums 中找到与 nums 拥有相同大小的度的最短连续子数组，返回其长度
      * 题解：获取出现元素最多的初始位置和末尾位置的长度
      * 相关标签：数组
+     * https://leetcode-cn.com/problems/degree-of-an-array/
      */
     public int findShortestSubArray(int[] nums) {
         // key为值，value为出现的次数
