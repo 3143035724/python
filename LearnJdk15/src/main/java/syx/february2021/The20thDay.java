@@ -3,6 +3,8 @@ package syx.february2021;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -27,7 +29,7 @@ public class The20thDay {
      * 相关标签：数组、双指针
      * https://leetcode-cn.com/problems/move-zeroes/
      */
-    static class A {
+    class A {
 
         public void moveZeroes(int[] nums) {
             if (nums == null || nums.length == 0) {
@@ -47,12 +49,14 @@ public class The20thDay {
             }
         }
 
-        @Test
-        public void test() {
-            int[] nums = {1, 2, 0, 5, 0, 10};
-            moveZeroes(nums);
-            System.out.println(nums);
-        }
+
+    }
+
+    @Test
+    public void test1() {
+        int[] nums = {1, 2, 0, 5, 0, 10};
+        new A().moveZeroes(nums);
+        System.out.println(nums);
     }
 
     /**
@@ -62,7 +66,7 @@ public class The20thDay {
      * 相关标签：数组
      * https://leetcode-cn.com/problems/degree-of-an-array/
      */
-    static class B {
+    class B {
         public int findShortestSubArray(int[] nums) {
             // key为值，value为出现的次数
             Map<Integer, Integer> map = new HashMap<>();
@@ -114,11 +118,95 @@ public class The20thDay {
             return set;
         }
 
-        @Test
-        public void test() {
-            int[] nums = {1, 2, 2, 3, 1};
-            System.out.println(findShortestSubArray(nums));
+    }
+
+    @Test
+    public void test2() {
+        int[] nums = {1, 2, 2, 3, 1};
+        System.out.println(new B().findShortestSubArray(nums));
+    }
+
+    /**
+     * 题目：合并两个有序数组  给你两个有序整数数组 nums1 和 nums2，请你将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组
+     * 初始化nums1 和 nums2 的元素数量分别为 m 和 n 。你可以假设 nums1 的空间大小等于 m + n，这样它就有足够的空间保存来自 nums2 的元素
+     * 相关标签：数组、双指针
+     * https://leetcode-cn.com/problems/merge-sorted-array/submissions/
+     * TODO
+     */
+    class C {
+//        public void merge(int[] nums1, int m, int[] nums2, int n) {
+//            if (m != 0 && n != 0) {
+//                // 将nums2中的数据全部放至nums1
+//                // 对nums1中数据进行排序
+//                int countIndex = 0;
+//                for (int i = m; i < nums1.length; i++) {
+//                    if (nums1[i] == 0) {
+//                        nums1[i] = nums2[countIndex];
+//                        countIndex++;
+//                    }
+//                }
+//                for (int i = 0; i < nums1.length; i++) {
+//                    if (i != 0 && nums1[i - 1] > nums1[i]) {
+//                        // 如果当前值 > 后续值，需要进行位置互换
+//                        int temp = nums1[i - 1];
+//                        nums1[i - 1] = nums1[i];
+//                        nums1[i] = temp;
+//                        i = 0;
+//                    }
+//                }
+//            } else {
+//                // 当只有数组2有数据时，将数组2的数据赋值给数组1
+//                if (m == 0) {
+//                    nums1 = new int[n];
+//                    for (int i = 0; i < nums2.length; i++) {
+//                        nums1[i] = nums2[i];
+//                    }
+//                }
+//            }
+//        }
+
+        public void merge(int[] nums1, int m, int[] nums2, int n) {
+            // 方法2，官方解答思路
+            // 拷贝nums1的数据至nums1_copy数组
+            int[] nums1Copy = new int[m];
+            System.arraycopy(nums1, 0, nums1Copy, 0, m);
+
+            // p1为拷贝数组的指针、p2为nums2的指针、p为nums1本身的指针
+            int p1 = 0;
+            int p2 = 0;
+
+            // Set pointer for nums1
+            int p = 0;
+
+            // 替换nums1中的数据，将拷贝的数据与nums2进行比较
+            while ((p1 < m) && (p2 < n)) {
+                nums1[p++] = (nums1Copy[p1] < nums2[p2]) ? nums1Copy[p1++] : nums2[p2++];
+            }
+
+            // src      the source array. 源数组
+            // srcPos   starting position in the source array. 源数组的起始位置
+            //  dest     the destination array. 目标数组
+            //  destPos  starting position in the destination data. 目标数组的起始位置
+            //  length   the number of array elements to be copied. 复制的长度
+            // 如果拷贝指针p1未移除至拷贝数组尾端，则需要将拷贝数组剩余部分进行赋值
+            if (p1 < m) {
+                System.arraycopy(nums1Copy, p1, nums1, p1 + p2, m + n - p1 - p2);
+            }
+            // 如果指针p2未移除至nums2数组尾端，则需要将nums2数组剩余部分进行赋值
+            if (p2 < n) {
+                System.arraycopy(nums2, p2, nums1, p1 + p2, m + n - p1 - p2);
+            }
         }
+    }
+
+    @Test
+    public void test3() {
+        int[] nums1 = {-1, 0, 0, 3, 3, 3, 0, 0, 0};
+        int m = 6;
+        int[] nums2 = {1, 2, 2};
+        int n = 3;
+        new C().merge(nums1, m, nums2, n);
+        System.out.println(nums1);
     }
 
 }
