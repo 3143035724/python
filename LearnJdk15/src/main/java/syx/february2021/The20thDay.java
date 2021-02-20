@@ -120,4 +120,5 @@ public class The20thDay {
             System.out.println(findShortestSubArray(nums));
         }
     }
+
 }
