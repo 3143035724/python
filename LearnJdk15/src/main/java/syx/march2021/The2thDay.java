@@ -67,7 +67,7 @@ public class The2thDay {
             // row1为行，col1为列
             for (int i = row1; i <= row2; i++) {
                 // 所有的都需要在sum数组中减去前序位置，保留当前位置
-                //  sum[i][col2 + 1] - sum[i][col1] = 当前位置的值;
+                //  sum[i][col2 + 1] - sum[i][col1] = 当前行位置的值;
                 sumNum = sumNum + sum[i][col2 + 1] - sum[i][col1];
             }
             return sumNum;
