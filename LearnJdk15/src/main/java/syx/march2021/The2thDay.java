@@ -18,11 +18,11 @@ public class The2thDay {
      * https://leetcode-cn.com/problems/range-sum-query-2d-immutable/
      */
     // 效率较低
-    class NumMatrix {
+    class NumMatrixA {
 
         private int[][] classMatrix;
 
-        public NumMatrix(int[][] matrix) {
+        public NumMatrixA(int[][] matrix) {
             this.classMatrix = matrix;
         }
 
@@ -42,6 +42,39 @@ public class The2thDay {
     }
 
 
+    class NumMatrixB {
+        int[][] sum;
+
+        public NumMatrixB(int[][] matrix) {
+            if (matrix == null || matrix.length == 0) {
+                return;
+            }
+            // 初始化时计算每一行前缀和，就是说第一个值为A，第二个值就为A+B
+            int length = matrix[0].length;
+            sum = new int[matrix.length][length + 1];
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < length; j++) {
+                    sum[i][j + 1] = matrix[i][j] + sum[i][j];
+                }
+            }
+        }
+
+        public int sumRegion(int row1, int col1, int row2, int col2) {
+            if (sum == null || sum.length == 0) {
+                return 0;
+            }
+            int sumNum = 0;
+            // row1为行，col1为列
+            for (int i = row1; i <= row2; i++) {
+                // 所有的都需要在sum数组中减去前序位置，保留当前位置
+                //  sum[i][col2 + 1] - sum[i][col1] = 当前位置的值;
+                sumNum = sumNum + sum[i][col2 + 1] - sum[i][col1];
+            }
+            return sumNum;
+        }
+    }
+
+
     @Test
     public void test() {
         int[][] matrix = new int[][]{
@@ -51,7 +84,7 @@ public class The2thDay {
                 {4, 1, 0, 1, 7},
                 {1, 0, 3, 0, 5}
         };
-        NumMatrix obj = new NumMatrix(matrix);
+        NumMatrixA obj = new NumMatrixA(matrix);
         obj.sumRegion(2, 1, 4, 3);
     }
 }
