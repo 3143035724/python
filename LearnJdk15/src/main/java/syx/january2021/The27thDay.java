@@ -56,6 +56,7 @@ public class The27thDay {
      * 题目：给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。
      * 不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。
      * 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
+     * https://leetcode-cn.com/problems/remove-element/
      */
     @Test
     public void test2() {
@@ -86,7 +87,9 @@ public class The27thDay {
     }
 
     /**
-     * 题目：给定一个haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回 -1。
+     * 题目：实现 strStr()
+     * 给定一个haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回 -1。
+     * https://leetcode-cn.com/problems/implement-strstr/
      */
 //    public int strStr(String haystack, String needle) {
 //        if (needle == null || haystack == null) {
