@@ -19,5 +19,6 @@ public class The9thDay {
                 split.append(s.charAt(i));
             }
         }
+        return split.toString();
     }
 }
