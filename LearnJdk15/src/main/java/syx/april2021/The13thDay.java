@@ -20,6 +20,7 @@ public class The13thDay {
      * 题目：783. 二叉搜索树节点最小距离
      * 给你一个二叉搜索树的根节点 root ，返回 树中任意两不同节点值之间的最小差值 。
      * 相关标签：树、深度优先搜索、递归
+     * https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/
      */
 
     private static List<Integer> list;
