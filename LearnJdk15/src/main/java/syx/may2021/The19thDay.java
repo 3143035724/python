@@ -9,7 +9,7 @@ import org.junit.Test;
  * @version 1.0.0
  * @date 2021/5/18 下午 4:10
  */
-public class The18th1Day {
+public class The19thDay {
 
     /**
      * 题目：8. 字符串转换整数 (atoi)
