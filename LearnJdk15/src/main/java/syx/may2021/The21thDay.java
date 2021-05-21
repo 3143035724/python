@@ -48,6 +48,17 @@ public class The21thDay {
 
     @Test
     public void test() {
-        findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4});
+//        findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4});
+        String s1 = new String("aaa");
+        String s2 = new String("aaa");
+        System.out.println(s1 == s2);
+
+        String s3 = s1.intern();
+        System.out.println(s1.intern() == s3);
+        System.out.println(s1 == s3);
+        System.out.println(s2 == s3);
+
     }
+
+
 }
